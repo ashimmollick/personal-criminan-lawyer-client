@@ -10,7 +10,7 @@ const Header = () => {
     </>
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-100 my-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -33,7 +33,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end w-3/12">
-                <a className="btn border-none hover:bg-yellow-600 bg-yellow-500">Free Consolution</a>
+                <a href="/" className="btn capitalize text-accent font-semibold border-none hover:bg-yellow-600 bg-yellow-500">Free Consolution</a>
             </div>
         </div>
     );
