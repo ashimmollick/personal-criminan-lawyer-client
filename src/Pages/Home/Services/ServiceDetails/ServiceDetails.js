@@ -51,8 +51,9 @@ const ServiceDetails = () => {
                 <p>{description}</p>
 
             </div>
+            <div className="divider w-4/5 mx-auto"></div>
             <div className='p-8'>
-                <h2 className='text-4xl text-yellow-500'>Write Your Review</h2>
+                <h2 className='text-4xl text-yellow-500 mb-5 font-semibold text-center'>Write Your Review</h2>
                 <div>
                     <form onSubmit={handleReview}>
                         <div className='grid grid-cols-1  lg:grid-cols-2 gap-4'>
