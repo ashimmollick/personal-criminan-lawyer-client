@@ -15,7 +15,7 @@ const Review = () => {
             .then(data => setReview(data))
     }, [user?.email])
     const handleDelete = id => {
-        const proceed = window.confirm('Are you sure, you want to cancel this order');
+        const proceed = window.confirm('Are you sure, you want to cancel this review');
         if (proceed) {
             fetch(`http://localhost:5000/review/${id}`, {
                 method: 'DELETE',
@@ -27,7 +27,7 @@ const Review = () => {
                 .then(data => {
                     if (data.deletedCount > 0) {
                         alert('deleted successfully');
-                        const remaining = reviews.filter(odr => odr._id !== id);
+                        const remaining = reviews.filter(rev => rev._id !== id);
                         setReview(remaining);
                     }
                 })

@@ -1,7 +1,9 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
+
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
+import icon from '../../../src/assets/Icon/google.svg'
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import useTitle from '../../hooks/useTitle';
 
@@ -70,12 +72,15 @@ const Signup = () => {
                     </form>
                     <p className='text-center pb-5'>Already have an account? <Link className='text-yellow-500 font-bold' to="/login">Login</Link> </p>
                     <div className="divider">OR</div>
-                    <button onClick={handleGoogleSignIn} className="btn btn-secondary w-max mb-10 mx-auto px-10">Sign Up Google</button>
-
+                    <p>  </p>
+                    <div onClick={handleGoogleSignIn} className='hover:text-yellow-500 flex justify-center align-middle py-8'>
+                        <span className="text-2xl font-semibold pr-2" >Sign up with </span>
+                        <img className='h-6 mt-2 ' src={icon} alt="" />
+                    </div>
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
