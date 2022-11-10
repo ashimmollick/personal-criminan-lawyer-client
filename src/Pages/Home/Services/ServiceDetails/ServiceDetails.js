@@ -46,7 +46,7 @@ const ServiceDetails = () => {
                 <h2 className="card-title">
                     {title}
 
-                    <div className="badge badge-secondary"> Total Coast: ${price}</div>
+                    <div className="badge badge-secondary py-3"> Total Coast: ${price}</div>
                 </h2>
                 <p>{description}</p>
 
