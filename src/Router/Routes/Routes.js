@@ -1,5 +1,6 @@
 import Main from "../../Layout/Main";
 import Home from "../../Pages/Home/Home/Home";
+import ServiceDetails from "../../Pages/Home/Services/ServiceDetails/ServiceDetails";
 import ServiceTotal from "../../Pages/Home/Services/ServicesTotal/ServiceTotal";
 import Login from "../../Pages/Login/Login";
 import Signup from "../../Pages/Signup/Signup";
@@ -26,7 +27,13 @@ const router = createBrowserRouter([
             {
                 path: '/serviceTotal',
                 element: <ServiceTotal></ServiceTotal>
+            },
+            {
+                path: '/details/:id',
+                element: <ServiceDetails></ServiceDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
             }
+
         ]
     }
 ])
