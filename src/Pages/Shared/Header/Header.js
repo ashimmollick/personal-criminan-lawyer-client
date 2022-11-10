@@ -12,22 +12,18 @@ const Header = () => {
     }
     const menuItem = <>
         <li>
-            <Link className='font-semibold' to='/'>Home</Link>
-            <Link className='font-semibold' to='/blog'>Blog</Link>
+            <Link className='font-semibold hover:bg-yellow-600' to='/'>Home</Link>
+            <Link className='font-semibold hover:bg-yellow-600' to='/blog'>Blog</Link>
 
             {
                 user?.email ?
                     <>
-                        < li className='font-semibold'>
-                            <Link className='font-semibold' to='/review'>My Review</Link>
-                        </li>
-                        < li className='font-semibold'>
-                            <button onClick={handleLogout} className=''>Sign Out</button>
-                        </li>
+                        <Link className='font-semibold hover:bg-yellow-600' to='/review'>My Review</Link>
+                        <Link onClick={handleLogout} className='font-semibold hover:bg-yellow-600'>Sign Out</Link>
                     </>
                     :
                     <>
-                        <Link className='font-semibold' to='/login'>Login</Link>
+                        <Link className='font-semibold hover:bg-yellow-600' to='/login'>Login</Link>
                     </>
             }
 
