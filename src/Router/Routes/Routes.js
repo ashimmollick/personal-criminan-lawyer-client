@@ -38,7 +38,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/details/${params.id}`)
+                loader: ({ params }) => fetch(`https://personal-criminan-lawyer-server.vercel.app/details/${params.id}`)
             },
             {
                 path: '/review',

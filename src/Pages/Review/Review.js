@@ -10,14 +10,14 @@ const Review = () => {
     useTitle('Review')
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review?email=${user?.email}`)
+        fetch(`https://personal-criminan-lawyer-server.vercel.app/review?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [user?.email])
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure, you want to cancel this review');
         if (proceed) {
-            fetch(`http://localhost:5000/review/${id}`, {
+            fetch(`https://personal-criminan-lawyer-server.vercel.app/review/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('genius-token')}`
