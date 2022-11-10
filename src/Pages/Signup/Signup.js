@@ -1,11 +1,19 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Signup = () => {
+    const location = useLocation();
+    const navigate = useNavigate()
 
+
+    const from = location.state?.from?.pathname || '/login'
+    const from1 = location.state?.from?.pathname || '/'
     const { createUser, providerLogin } = useContext(AuthContext);
+    useTitle('singup')
     const handleSignup = event => {
         event.preventDefault();
         const form = event.target;
@@ -16,6 +24,7 @@ const Signup = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true })
             })
             .catch(err => console.error(err));
     }
@@ -25,6 +34,7 @@ const Signup = () => {
             .then(resulte => {
                 const user = resulte.user;
                 console.log(user)
+                navigate(from1, { replace: true })
             })
             .catch(error => console.error(error))
     }
@@ -60,7 +70,9 @@ const Signup = () => {
                     </form>
                     <p className='text-center pb-5'>Already have an account? <Link className='text-yellow-500 font-bold' to="/login">Login</Link> </p>
                     <div className="divider">OR</div>
-                    <button onClick={handleGoogleSignIn}>g</button>
+                    <button onClick={handleGoogleSignIn} className="btn btn-secondary w-max mb-10 mx-auto px-10">Sign Up Google</button>
+
+
                 </div>
             </div>
         </div>

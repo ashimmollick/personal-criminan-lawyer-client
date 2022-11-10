@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
+
 import ServiceCard from '../ServiceCard/ServiceCard';
 
 const ServiceTotal = () => {
+
     const [services, setServices] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/services')

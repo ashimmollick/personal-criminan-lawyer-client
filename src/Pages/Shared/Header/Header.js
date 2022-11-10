@@ -14,11 +14,12 @@ const Header = () => {
         <li>
             <Link className='font-semibold' to='/'>Home</Link>
             <Link className='font-semibold' to='/blog'>Blog</Link>
+
             {
                 user?.email ?
                     <>
                         < li className='font-semibold'>
-                            <button className=''>Review</button>
+                            <Link className='font-semibold' to='/review'>My Review</Link>
                         </li>
                         < li className='font-semibold'>
                             <button onClick={handleLogout} className=''>Sign Out</button>

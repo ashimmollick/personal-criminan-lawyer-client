@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ReviewRow = ({ review }) => {
-    const { author, email, reviewName, message } = review
+const ReviewRow = ({ review, handleDelete }) => {
+    const { _id, author, email, reviewName, message } = review
     return (
         <tr>
 
@@ -26,7 +26,7 @@ const ReviewRow = ({ review }) => {
 
             <th>
 
-                <button className="btn btn-ghost hover:bg-yellow-500">X</button>
+                <button onClick={() => handleDelete(_id)} className="btn btn-ghost hover:bg-yellow-500">X</button>
             </th>
         </tr>
     );

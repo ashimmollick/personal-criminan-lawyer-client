@@ -1,9 +1,16 @@
 
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../hooks/useTitle';
+
 
 const Login = () => {
+    const location = useLocation();
+    const navigate = useNavigate()
+    useTitle('login')
+
+    const from = location.state?.from?.pathname || '/'
     const { login } = useContext(AuthContext)
     const handleLogin = event => {
         event.preventDefault();
@@ -14,8 +21,15 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                navigate(from, { replace: true })
+                form.reset()
+
+
+
             })
+
             .catch(error => console.error(error))
+
     }
     return (
         <div className=" min-h-screen bg-base-200">
@@ -36,7 +50,7 @@ const Login = () => {
                             </label>
                             <input name='password' type="password" placeholder="password" className="input input-bordered" />
                             <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
                         <div className=" m-auto">

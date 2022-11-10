@@ -1,11 +1,14 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../../../hooks/useTitle';
 
 const ServiceDetails = () => {
     const { _id, title, img, price, description } = useLoaderData()
     const { user } = useContext(AuthContext)
+    useTitle('details');
     const handleReview = event => {
+
         event.preventDefault()
         const form = event.target;
         const name = form.firstName.value;
@@ -18,6 +21,7 @@ const ServiceDetails = () => {
             email,
             message
         }
+
         fetch('http://localhost:5000/review', {
             method: 'POST',
             headers: {
@@ -28,7 +32,6 @@ const ServiceDetails = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.acknowledged) {
-                    alert('review place')
                     form.reset()
                 }
                 console.log(data)
