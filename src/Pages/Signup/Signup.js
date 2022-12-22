@@ -12,7 +12,7 @@ const Signup = () => {
     const navigate = useNavigate()
 
 
-    const from = location.state?.from?.pathname || '/login'
+    const from = location.state?.from?.pathname || '/'
     const from1 = location.state?.from?.pathname || '/'
     const { createUser, providerLogin } = useContext(AuthContext);
     useTitle('singup')
